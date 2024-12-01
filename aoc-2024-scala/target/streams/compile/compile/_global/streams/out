@@ -1,0 +1,5 @@
+[0m[[0m[33mwarn[0m] [0m[0m[33m[33m-- Warning: /home/theme/study/aoc2024/aoc-2024-scala/src/main/scala/Day1.scala:1:7 [0m[0m[0m
+[0m[[0m[33mwarn[0m] [0m[0m[33m1 |[0m[33mobject[0m [35mDay1[0m:[0m
+[0m[[0m[33mwarn[0m] [0m[0m[33m[33m  |[0m       ^[0m[0m
+[0m[[0m[33mwarn[0m] [0m[0m[33m  |[0m[33mobject[0m [35mDay1[0m differs only in case from [33mclass[0m [35mday1[0m. Such classes will overwrite one another on case-insensitive filesystems.[0m
+[0m[[0m[33mwarn[0m] [0m[0mone warning found[0m

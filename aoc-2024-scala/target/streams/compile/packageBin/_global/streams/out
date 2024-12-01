@@ -1,0 +1,29 @@
+[0m[[0m[0mdebug[0m] [0m[0mPackaging /home/theme/study/aoc2024/aoc-2024-scala/target/scala-3.3.1/scala3-project_3-0.1.0.jar ...[0m
+[0m[[0m[0mdebug[0m] [0m[0mInput file mappings:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Day1$package.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/theme/study/aoc2024/aoc-2024-scala/target/scala-3.3.1/classes/Day1$package.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Day1$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/theme/study/aoc2024/aoc-2024-scala/target/scala-3.3.1/classes/Day1$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	day1.tasty[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/theme/study/aoc2024/aoc-2024-scala/target/scala-3.3.1/classes/day1.tasty[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Main$package$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/theme/study/aoc2024/aoc-2024-scala/target/scala-3.3.1/classes/Main$package$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Day1$package$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/theme/study/aoc2024/aoc-2024-scala/target/scala-3.3.1/classes/Day1$package$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	day1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/theme/study/aoc2024/aoc-2024-scala/target/scala-3.3.1/classes/day1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Day1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/theme/study/aoc2024/aoc-2024-scala/target/scala-3.3.1/classes/Day1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Main$package.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/theme/study/aoc2024/aoc-2024-scala/target/scala-3.3.1/classes/Main$package.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Day1$package.tasty[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/theme/study/aoc2024/aoc-2024-scala/target/scala-3.3.1/classes/Day1$package.tasty[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Day1.tasty[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/theme/study/aoc2024/aoc-2024-scala/target/scala-3.3.1/classes/Day1.tasty[0m
+[0m[[0m[0mdebug[0m] [0m[0m	hello.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/theme/study/aoc2024/aoc-2024-scala/target/scala-3.3.1/classes/hello.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	hello.tasty[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/theme/study/aoc2024/aoc-2024-scala/target/scala-3.3.1/classes/hello.tasty[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Main$package.tasty[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/theme/study/aoc2024/aoc-2024-scala/target/scala-3.3.1/classes/Main$package.tasty[0m
+[0m[[0m[0mdebug[0m] [0m[0mDone packaging.[0m
