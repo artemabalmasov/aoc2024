@@ -2,17 +2,21 @@ def find_xmas_patterns(grid):
     rows = len(grid)
     cols = len(grid[0])
     count = 0
-    
-    def check_mas(start_row, start_col, dr, dc):
+
+    def check_mas(sr, sc, d1, d2):
         """Check if there's a MAS (or SAM) starting from given position in given direction"""
+        # Check if all positions are within grid boundaries
+        r1, c1 = sr + d1[0], sc + d1[1]
+        r2, c2 = sr + d2[0], sc + d2[1]
+
+        if not (0 < sr < rows-1 and 0 < sc < cols-1):
+            return False
+
         word = ''
-        for i in range(3):
-            r = start_row + dr * i
-            c = start_col + dc * i
-            if 0 <= r < rows and 0 <= c < cols:
-                word += grid[r][c]
-            else:
-                return False
+        word += grid[r1][c1]
+        word += grid[sr][sc]
+        word += grid[r2][c2]
+        print(word)
         return word in ['MAS', 'SAM']
 
     # Find each 'A' in the grid
@@ -20,23 +24,11 @@ def find_xmas_patterns(grid):
         for col in range(cols):
             if grid[row][col] != 'A':
                 continue
-                
-            # For each 'A', check all possible pairs of diagonal MAS patterns
-            diagonals = [(-1,-1), (-1,1), (1,-1), (1,1)]
             
             # Check each pair of diagonal directions
-            for i in range(len(diagonals)):
-                for j in range(i+1, len(diagonals)):
-                    # Get the two diagonal directions
-                    d1 = diagonals[i]
-                    d2 = diagonals[j]
-                    
-                    # Only consider diagonal pairs that form an X
-                    if (d1[0] == -d2[0] and d1[1] == -d2[1]):
-                        # Check if both diagonals form valid MAS patterns
-                        if (check_mas(row, col, d1[0], d1[1]) and 
-                            check_mas(row, col, d2[0], d2[1])):
-                            count += 1
+            if (check_mas(row, col, (-1,-1), (1,1)) and
+                    check_mas(row, col, (-1,1), (1, -1))):
+                    count += 1
 
     return count
 
