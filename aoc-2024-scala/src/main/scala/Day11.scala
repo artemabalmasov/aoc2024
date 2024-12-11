@@ -1,62 +1,56 @@
 object Day11:
   class StoneGraph:
-    private var tree: List[Int] = Nil
-    private val knownSubtrees = scala.collection.mutable.Map[Int, List[Int]]()
+    private var stones = Map.empty[BigInt, BigInt]  // Using BigInt for both keys and values
 
-    private def transformStone(stone: Int): List[Int] =
-      if stone == 0 then
-        List(1)
+    private def transformStone(stone: BigInt): List[BigInt] =
+      if stone == BigInt(0) then
+        List(BigInt(1))
       else
-        val rez: Option[List[Int]] = knownSubtrees.get(stone)
-        if rez.isDefined then
-          return rez.get
-
         val stoneStr = stone.toString
         if stoneStr.length % 2 == 0 then
           val mid = stoneStr.length / 2
-          val left = stoneStr.take(mid).toInt
-          val right = stoneStr.drop(mid).toInt
-          knownSubtrees.put(stone, List(left, right))
+          val left = BigInt(stoneStr.take(mid))
+          val right = BigInt(stoneStr.drop(mid))
           List(left, right)
         else
-          knownSubtrees.put(stone, List(stone * 2024))
-          List(stone * 2024)
+          List(stone * BigInt(2024))
+
+    def printState(): Unit =
+      println("Current stones and counts:")
+      stones.toList.sortBy(_._1).foreach { case (stone, count) =>
+        println(s"Stone $stone: $count times")
+      }
 
     def growTree(): Unit =
-      tree = tree.flatMap { transformStone}
+      val newStones = stones.toList.flatMap { case (stone, count) =>
+        transformStone(stone).map(_ -> count)
+      }
+      // Combine counts for same stones
+      stones = newStones.groupMapReduce(_._1)(_._2)(_ + _)
 
-        // Get or create next level for each leaf
+    def initializeTree(initialStones: List[Int]): Unit =
+      stones = initialStones.groupMapReduce(i => BigInt(i))(_ => BigInt(1))(_ + _)
 
-//        node =>
-//          if knownSubtrees.contains(node) then
-//          // Reuse known subtree for this value
-//            knownSubtrees(node.value)
-//          else
-//            // Create new nodes for this value
-//            val newNodes = transformStone(node.value).map(Node(_))
-//            knownSubtrees(node.value) = newNodes
-//            newNodes
-//        }
+    def getTotalStones: BigInt = stones.values.sum
 
-    def initializeTree(stones: List[Int]): Unit =
-      tree = stones
-
-    def getLeafValues: List[Int] = tree
-
-  def solvePuzzle(input: String, numBlinks: Int = 75): Int =
+  def solvePuzzle(input: String, numBlinks: Int = 75): BigInt =
     val stones = input.trim.split("\\s+").map(_.toInt).toList
     val graph = StoneGraph()
     graph.initializeTree(stones)
 
+    println("Initial state:")
+    graph.printState()
+
     for blink <- 1 to numBlinks do
       graph.growTree()
-      if blink % 10 == 0 then
-        println(s"After $blink blinks: ${graph.getLeafValues.length} stones")
+      if blink % 5 == 0 || blink == 1 then
+        println(s"After $blink blinks: ${graph.getTotalStones} stones")
+        graph.printState()
 
-    graph.getLeafValues.length
+    graph.getTotalStones
 
-  def solvePart1(input: String): Int = solvePuzzle(input, 25)
-  def solvePart2(input: String): Int = solvePuzzle(input, 75)
+  def solvePart1(input: String): BigInt = solvePuzzle(input, 25)
+  def solvePart2(input: String): BigInt = solvePuzzle(input, 75)
 
   def main(args: Array[String]): Unit =
     println("Day 11: Stone Transformation")
@@ -64,8 +58,8 @@ object Day11:
     // Test with example first
     val example = "125 17"
     val testCases = List(
-      (6, 22),
-      (25, 55312)
+      (6, BigInt(22)),
+      (25, BigInt(55312))
     )
 
     // Verify example cases
@@ -81,10 +75,6 @@ object Day11:
     // Process actual input file
     try
       val input = scala.io.Source.fromFile(args(0)).mkString
-
-//      println("\nPart 1: 25 blinks")
-//      val part1Result = Day11.solvePart1(input)
-//      println(s"Number of stones after 25 blinks: $part1Result")
 
       println("\nPart 2: 75 blinks")
       val part2Result = Day11.solvePart2(input)
